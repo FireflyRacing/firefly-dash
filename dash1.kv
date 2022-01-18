@@ -1,0 +1,246 @@
+<BaseGridLayout>:
+#    cols: 1
+#    rows: 1
+#    AnchorLayout:
+#    size:root.width,root.height
+#    top: self.height
+
+    runTach:runTach
+    tempPointer:tempPointer
+    fuelPointer:fuelPointer
+    tachPointer:tachPointer
+
+
+    GridLayout:
+        cols: 1
+        rows: 1
+        size:root.width,root.height
+
+        Widget:
+            Button:
+                id: runTach
+                text: "Cycle Tach"
+                pos: (20,600)
+                on_press: root.doTach()
+        Widget:
+            Button:
+                text: "Cycle Fuel"
+                pos: (120,600)
+                on_press: root.doFuel()
+
+        Widget:
+            canvas:
+                Rectangle:
+                    source: "images/arrow-left-green.png"
+                    size: (48,48)
+                    pos: (760,650)
+
+        Widget:
+            canvas:
+                Rectangle:
+                    source: "images/car-light-high-blue.png"
+                    size: (48,48)
+                    pos: (960,650)
+
+        Widget:
+            canvas:
+                Rectangle:
+                    source: "images/arrow-right-green.png"
+                    size: (48,48)
+                    pos: (1160,650)
+
+        GridLayout:
+            cols: 5
+            rows: 3
+
+            FloatLayout:
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/t.png"
+                            size: (200,580)
+                            pos: (0,0)
+
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/car-battery-red.png"
+                            size: (48,48)
+                            pos: (50,500)
+
+                Label:
+                    text: "CHECK\nENGINE"
+                    bold: True
+                    pos: (70,370)
+                    font_size: '25dp'
+                    color: 1,153/255,0,1
+
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/seatbelt-red.png"
+                            size: (48,48)
+                            pos: (50,300)
+
+                Label:
+                    text: " AIR\nBAG"
+                    bold: True
+                    pos: (65,170)
+                    font_size: '25dp'
+                    color: 1,153/255,0,1
+
+            FloatLayout:
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/temp.png"
+                            size: (300,300)
+                            pos: (380,330)
+                Widget:
+                    id: tempPointer
+                    origin: self.center
+                    canvas:
+                        Rectangle:
+                            source: "images/pointer2-shad.png"
+                            size: (300,300)
+                            pos: (380,330)
+
+
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/fuel.png"
+                            size: (300,300)
+                            pos: (200,20)
+                Widget:
+                    id: fuelPointer
+                    origin: self.center
+                    canvas:
+                        Rectangle:
+                            source: "images/pointer2-shad.png"
+                            size: (300,300)
+                            pos: (200,20)
+
+
+            FloatLayout:
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/tach2.png"
+                            size: (580,580)
+                            pos: (700,50)
+                Widget:
+                    id: tachPointer
+                    origin: self.center
+                    pos: (700,50)
+                    canvas:
+                        Rotate:
+                            axis: (0,0,1)
+                            origin: (990,340)
+                            angle: 0
+                        Rectangle:
+                            source: "images/pointer2-shad.png"
+                            size: (580,580)
+                            pos: (700,50)
+                Label:
+                    text: "RPM"
+                    bold: True
+                    pos: (1230,240)
+                    font_size: '30dp'
+                    color: 1,0,0,1
+
+                Label:
+                    text: "X1000"
+                    pos: (1230,210)
+                    font_size: '20dp'
+                Label:
+                    text: "0"
+                    pos: (980,280)
+                    font_name: 'DSEG7Classic'
+                    font_size: '70dp'
+                Label:
+                    text: "MPH"
+                    pos: (980,220)
+                    font_size: '30dp'
+                Label:
+                    text: "000000.0 mi"
+                    pos: (1180,80)
+                    font_size: '20dp'
+
+
+            FloatLayout:
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/volts-flip.png"
+                            size: (300,300)
+                            pos: (1300,330)
+                Widget:
+                    id: voltsPointer
+                    origin: self.center
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: -300
+                            origin: (1450, 480)
+                    canvas.after:
+                        PopMatrix
+                    canvas:
+                        Rectangle:
+                            source: "images/pointer2-shad.png"
+                            size: (300,300)
+                            pos: (1300,330)
+
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/oil.png"
+                            size: (300,300)
+                            pos: (1380,20)
+                Widget:
+                    id: voltsPointer
+                    origin: self.center
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: -300
+                            origin: (1530, 170)
+                    canvas.after:
+                        PopMatrix
+                    canvas:
+                        Rectangle:
+                            source: "images/pointer2-shad.png"
+                            size: (300,300)
+                            pos: (1380,20)
+
+
+
+            FloatLayout:
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/t.png"
+                            size: (200,580)
+                            pos: (1680,0)
+
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/car-brake-parking-red.png"
+                            size: (48,48)
+                            pos: (1820,500)
+
+                Widget:
+                    canvas:
+                        Rectangle:
+                            source: "images/car-coolant-level-orange.png"
+                            size: (48,48)
+                            pos: (1820,400)
+
+                Label:
+                    text: " LOW\n  OIL"
+                    bold: True
+                    pos: (1830,270)
+                    font_size: '25dp'
+                    color: 1,153/255,0,1
+
