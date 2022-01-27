@@ -1,0 +1,9 @@
+{
+    "backgroundImage": "images/cf-background.jpg",
+    "windowSizeX": 1920,
+    "windowSizeY": 720,
+    "redis": {
+        "ip": "localhost",
+        "port": 6379
+    }
+}

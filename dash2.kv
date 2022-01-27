@@ -1,15 +1,11 @@
-<Dash1Layout>:
+<Dash2Layout>:
 #    cols: 1
 #    rows: 1
 #    AnchorLayout:
 #    size:root.width,root.height
 #    top: self.height
 
-    canvas.before:
-        Rectangle:
-            pos: self.pos
-            size: self.size
-            source: "images/cf-background.jpg"
+
 
     tempPointer:tempPointer
     fuelPointer:fuelPointer
@@ -26,7 +22,6 @@
     parking:parking
     coolant:coolant
     lowOil:lowOil
-    speed:speed
     shift:shift
 
     GridLayout:
@@ -34,40 +29,20 @@
         rows: 1
         size:root.width,root.height
 
-
         Widget:
-            Button:
-                text: "Change Screen"
-                on_press:
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'dash2'
-        #Widget:
-        #    Button:
-        #        id: runTach
-        #        text: "Cycle Tach"
-        #        pos: (20,600)
-        #        on_press: root.doTach()
-        #Widget:
-        #    Button:
-        #        text: "Cycle Fuel"
-        #        pos: (120,600)
-        #        on_press: root.doFuel()
-
-        #Widget:
-        #    Button:
-        #        text: "left on"
-        #        pos: (220,600)
-        #        on_press: root.turnLeft()
-
-        #Widget:
-        #    Button:
-        #        text: "left off"
-        #        pos: (320,600)
-        #        on_press: root.turnLeftOff()
+            id: shift
+            opacity: 1.0
+            canvas.before:
+                Color:
+                    rgba: 1,0,0,0
+            canvas:
+                Rectangle:
+                    size: (1920, 720)
+                    pos: (0,0)
 
         Widget:
             id: leftArrow
-            opacity: 0.0
+            opacity: 1.0
             canvas:
                 Rectangle:
                     source: "images/arrow-left-green.png"
@@ -181,7 +156,7 @@
                 Widget:
                     canvas:
                         Rectangle:
-                            source: "images/tach2.png"
+                            source: "images/tach-dash2.png"
                             size: (580,580)
                             pos: (700,50)
                 Widget:
@@ -198,37 +173,14 @@
                             source: "images/pointer2-shad.png"
                             size: (580,580)
                             pos: (700,50)
-                Widget:
-                    id: shift
-                    opacity: 1.0
-                    canvas.before:
-                        Color:
-                            rgba: 1,0,0,0
-                    canvas:
-                        Rectangle:
-                            size: (580,580)
-                            pos: (700,50)
-                Label:
-                    text: "RPM"
-                    bold: True
-                    pos: (1230,240)
-                    font_size: '30dp'
-                    color: 1,0,0,1
 
                 Label:
-                    text: "X1000"
-                    pos: (1230,210)
-                    font_size: '20dp'
-                Label:
-                    id: speed
+                    id: rpm
                     text: "0"
-                    pos: (980,280)
+                    pos: (980,300)
                     font_name: 'DSEG7Classic'
-                    font_size: '70dp'
-                Label:
-                    text: "MPH"
-                    pos: (980,220)
-                    font_size: '30dp'
+                    font_size: '40dp'
+
                 Label:
                     id: odometer
                     text: "000000.0 mi"
@@ -260,28 +212,28 @@
                             size: (300,300)
                             pos: (1300,330)
 
-                Widget:
-                    canvas:
-                        Rectangle:
-                            source: "images/oil.png"
-                            size: (300,300)
-                            pos: (1380,20)
+                #Widget:
+                #    canvas:
+                #        Rectangle:
+                #            source: "images/oil.png"
+                #            size: (300,300)
+                #            pos: (1380,20)
                 Widget:
                     id: oilPointer
-                    origin: (1530, 170)
-                    angle: 0
-                    canvas.before:
-                        PushMatrix
-                        Rotate:
-                            angle: -300
-                            origin: (1530, 170)
-                    canvas.after:
-                        PopMatrix
-                    canvas:
-                        Rectangle:
-                            source: "images/pointer2-shad.png"
-                            size: (300,300)
-                            pos: (1380,20)
+                #    origin: (1530, 170)
+                #    angle: 0
+                #    canvas.before:
+                #        PushMatrix
+                #        Rotate:
+                #            angle: -300
+                #            origin: (1530, 170)
+                #    canvas.after:
+                #        PopMatrix
+                #    canvas:
+                #        Rectangle:
+                #            source: "images/pointer2-shad.png"
+                #            size: (300,300)
+                #            pos: (1380,20)
 
 
 
